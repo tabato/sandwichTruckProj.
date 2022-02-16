@@ -6,7 +6,7 @@ import java.util.Random;
     Jake Clause
 
     Description:
-    This creates 10 randomly generated address (coordinates) for the sandwhich truck and puts them into a file called
+    This creates 10 randomly generated address (coordinates) for the sandwich truck and puts them into a file called
     "Houses.txt".
 
     Variables:
@@ -14,7 +14,7 @@ import java.util.Random;
     int street2 = y values
     int house = Number value (1-10)
     String address = Randomly generated address neatly formatted
-    String ezAddress = Same values as address but only the contains values for easy manipulation
+    String ezAddress = Same values as address but only contains values for easy manipulation
      */
 
 public class Main {
@@ -29,7 +29,7 @@ public class Main {
                     + ")";
             //String ezAddress = (street1+1) + "," + street2 + "," + (house+1) + ")";
             System.setOut(file); // Selects file as output directory for everything below
-            System.out.println(address);
+            System.out.println(address); // Prints the address to the file. Replace "address" with ezAdress" when needed
         }
     }
 }
