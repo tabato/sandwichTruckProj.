@@ -16,7 +16,7 @@ Description: - Constructs our addresses for our address book
 
 public class Address {
 
-    private static final String filename = "/Users/abatotmoravian.edu/MyCourses/234/sandwichTruckProj./src/primarySrc/sandwichTruckGUItest/sandwichTruckGUItest/src/com/company/Houses.txt";
+    private static final String filename = "/Users/abatotmoravian.edu/MyCourses/234/sandwichTruckProj./something.txt";
     private final String street;
     private final int houseNumber;
 
