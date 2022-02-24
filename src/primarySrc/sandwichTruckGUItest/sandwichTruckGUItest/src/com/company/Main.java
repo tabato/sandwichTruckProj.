@@ -11,7 +11,6 @@ Author :
 
 Description: - Will cause the random houses code to run
 - Call the mainframe where the standard GUI is built
-
  */
 
 public class Main {
