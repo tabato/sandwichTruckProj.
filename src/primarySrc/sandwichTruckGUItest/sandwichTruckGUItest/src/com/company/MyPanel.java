@@ -6,7 +6,16 @@ import java.awt.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-//Will be used to draw anything on the map
+/*
+Author :
+@ Thomas Abato
+
+Description: - A majority of the work is done here
+
+There are more comments on the inside to further explain specifics, but as a result of some of the mess of integration,
+I was forced to make a lot of the adjustments myself which made for some funky class decisions.
+
+ */
 
 public class MyPanel extends JPanel {
 

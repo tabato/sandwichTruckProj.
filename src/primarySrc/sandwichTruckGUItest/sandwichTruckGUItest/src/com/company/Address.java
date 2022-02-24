@@ -5,12 +5,19 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 /*
+Authors :
+@ Thomas Abato
+@ Colin Conway
+
+Description: - Constructs our addresses for our address book
+- Allows us to convert singular addresses into positions for our GUI
+- Allows us build an address book for all of our orders
 
  */
 
 public class Address {
 
-    private static final String filename = "/Users/abatotmoravian.edu/IdeaProjects/sandwichTruckGUItest/src/com/company/Houses.txt";
+    private static final String filename = "/Users/abatotmoravian.edu/MyCourses/234/sandwichTruckProj./src/primarySrc/sandwichTruckGUItest/sandwichTruckGUItest/src/com/company/Houses.txt";
     private final String street;
     private final int houseNumber;
 

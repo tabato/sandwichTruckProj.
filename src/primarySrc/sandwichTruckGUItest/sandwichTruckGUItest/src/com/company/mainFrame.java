@@ -3,7 +3,13 @@ package primarySrc.sandwichTruckGUItest.sandwichTruckGUItest.src.com.company;
 import javax.swing.*;
 import java.awt.*;
 
-// Establishes our panel for our GUI, sends us to MyPanel class where actual drawing is done.
+/*
+Author :
+@ Thomas Abato
+
+Description: - Establishes our panel for our GUI, sends us to MyPanel class where the actual drawing can be completed
+
+ */
 public class mainFrame extends JFrame {
 
     MyPanel panel;

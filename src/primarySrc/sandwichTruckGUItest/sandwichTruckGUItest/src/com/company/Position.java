@@ -1,8 +1,16 @@
 package primarySrc.sandwichTruckGUItest.sandwichTruckGUItest.src.com.company;
 
 
-// Creates actual coordinates for us to paint objects onto our GUI
 
+
+/*
+Author :
+@ Thomas Abato
+
+Description: - Creates actual coordinates for us to paint objects onto our GUI
+- Can attach a position or set of coordinates to any object or variable
+
+ */
 public class Position {
     private int x; // Basic x & y variables.
     private int y;

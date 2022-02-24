@@ -2,7 +2,16 @@ package primarySrc.sandwichTruckGUItest.sandwichTruckGUItest.src.com.company;
 
 import java.awt.*;
 
-// Declares positions onto the map, where we can call for, and paint onto the GUI
+
+/*
+Author :
+@ Thomas Abato
+
+Description: - Declares positions onto the map, where we can call for, and paint onto the GUI
+- Operates very similar to position with some additional features
+
+ */
+
 public class Destination {
 
     private Position destination;
