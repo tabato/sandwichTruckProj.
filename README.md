@@ -2,6 +2,10 @@
 CSCI 234A Sandwich Truck Repository for Team Six's project.
 <<<<<<< HEAD
 
+The Proper final version of the code's path is as follows.
+
+sandwichTruckProj./src/primarySrc/sandwichTruckGUItest/sandwichTruckGUItest/src/com/company/Main.java/
+
 =======
 
 Greg Schaper
