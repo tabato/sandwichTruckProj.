@@ -11,6 +11,7 @@ Description: - Adaptation of the code written by Jake Clause
 - Allows for it to be more easily read by our Address Book function within our address class
 - Creates strings with the street and the house number to later be configured into destinations
     or postions to be drawn onto our GUI
+
  */
 
 public class addressWriter {

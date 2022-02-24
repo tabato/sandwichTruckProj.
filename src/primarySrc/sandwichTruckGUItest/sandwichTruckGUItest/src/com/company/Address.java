@@ -12,6 +12,7 @@ Authors :
 Description: - Constructs our addresses for our address book
 - Allows us to convert singular addresses into positions for our GUI
 - Allows us build an address book for all of our orders
+
  */
 
 public class Address {

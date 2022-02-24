@@ -8,6 +8,7 @@ Author :
 @ Thomas Abato
 
 Description: - Establishes our panel for our GUI, sends us to MyPanel class where the actual drawing can be completed
+
  */
 public class mainFrame extends JFrame {
 
