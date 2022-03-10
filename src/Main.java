@@ -7,12 +7,21 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Random;
 
+
 /*
 Author :
 @ Thomas Abato
 
 Description: - Will cause the random houses code to run
 - Call the mainframe where the standard GUI is built
+ */
+
+/*
+Author:
+@ Colin Conway
+
+Added TimeStamps to be added to the batch file
+time is in military time in hours and minutes ranging from 11:00 to 16:59
  */
 
 public class Main {
@@ -35,15 +44,25 @@ public class Main {
             int random1or2 = (rnd.nextInt(2) + 1);
             String nHouse = String.valueOf(block) + String.valueOf(house) + "0"; // Merges block and house to create the house number
             //String address = (i+1) +".) (Street 1 (x): " + (street1) + ", Street 2 (y): " + street2 + ", House: " + nHouse + ")";
+
+            // gets a random time in hours from 11 to 16 (military time)
+            int hour = rnd.nextInt(6) + 11;
+            // gets a random time in minutes from 0 to 59
+            int minute = rnd.nextInt(61) + 1;
+
+            // concatenates hour and minute to a string called time
+            // is now ready to be added to batch file
+            String time = hour + ":" + minute;
+
             if(random1or2 ==1)
             {
-                String ezAddress = street1 + ", " + nHouse;
+                String ezAddress = street1 + ", " + nHouse + ", " + time;
                 System.setOut(file); // Selects file as output directory for everything below
                 System.out.println(ezAddress); // Prints the address to the file. Replace "address" with "ezAdress" when needed
             }
             else
             {
-                String ezAddress = street2 + ", " + nHouse;
+                String ezAddress = street2 + ", " + nHouse + ", " + time;
                 System.setOut(file); // Selects file as output directory for everything below
                 System.out.println(ezAddress); // Prints the address to the file. Replace "address" with "ezAdress" when needed
             }
