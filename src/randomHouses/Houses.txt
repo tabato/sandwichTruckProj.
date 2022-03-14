@@ -1,0 +1,5 @@
+1.) (Street 1 (x): 10, Street 2 (y): u, House: 7)
+2.) (Street 1 (x): 10, Street 2 (y): l, House: 10)
+3.) (Street 1 (x): 4, Street 2 (y): p, House: 8)
+4.) (Street 1 (x): 9, Street 2 (y): z, House: 6)
+5.) (Street 1 (x): 9, Street 2 (y): m, House: 7)
