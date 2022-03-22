@@ -1,7 +1,5 @@
 package primarySrc.sandwichTruckGUItest.sandwichTruckGUItest.src.com.company;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -47,12 +45,14 @@ public class Main {
 
             // gets a random time in hours from 11 to 16 (military time)
             int hour = rnd.nextInt(6) + 11;
+            String hourString = Integer.toString(hour);
             // gets a random time in minutes from 0 to 59
             int minute = rnd.nextInt(61) + 1;
+            String minuteString = Integer.toString(minute);
 
             // concatenates hour and minute to a string called time
             // is now ready to be added to batch file
-            String time = hour + ":" + minute;
+            String time = hourString + minuteString;
 
             if(random1or2 ==1)
             {
