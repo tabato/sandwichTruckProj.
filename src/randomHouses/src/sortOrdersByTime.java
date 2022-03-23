@@ -2,6 +2,27 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+
+/*
+    Creator:
+    Jake Clause
+
+    Description:
+    This sorts the file Houses.txt in order by time
+
+    Variables:
+    ArrayList<String> originalList = original list of orders
+    String[] originalStamp = contains oringal list but allows easier manipulation than originalList
+    LinkedList<Integer> hour = A linkedlist with all the hours. Will be used to manipulate sort
+    LinkedList<String> newList = new list of orders
+    int backCheck = It is used in the time configuration for an easier read. Checks behind the hour (in the list) in the for loop
+    int forwardCheck = It is used in the time configuration for an easier read. Checks ahead the hour (in the list) in the for loop
+    PrintStream file = file that contains the newly sorted orders
+    BufferedReader reader = reads from Houses.txt
+    String line = currently selected order
+     */
+
+
 public class sortOrdersByTime {
 
     static ArrayList<String> originalList = new ArrayList<>();
@@ -49,8 +70,7 @@ public class sortOrdersByTime {
         BufferedReader reader = new BufferedReader(new FileReader("Houses.txt"));
         String line;
 
-        for (int i = 0; i < 100; i++) { // This can be changed to " while(line !=null)" or change 3 to 100 when done
-            //Original Order Stamp
+        for (int i = 0; i < 100; i++) {
             line = reader.readLine();
             originalList.add(line);
             originalStamp = line.split(",");
