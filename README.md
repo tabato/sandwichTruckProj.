@@ -1,10 +1,28 @@
 # sandwichTruckProj.
 CSCI 234A Sandwich Truck Repository for Team Six's project.
-<<<<<<< HEAD
 
-The Proper final version of the code's path is as follows.
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
 
-sandwichTruckProj./src/primarySrc/sandwichTruckGUItest/sandwichTruckGUItest/src/com/company/Main.java/
+## General info
+This project is a simple representation of how an app would work for a local sandwich truck using a GUI to represent the truck actively moving on the map, and a way of taking and storing orders and figuring out a route for the truck.
+	
+## Technologies
+Project is created with:
+* Java
+	
+## Setup
+To run this project, first you must clone the repository, and then open the src file located wherever you clomned the repository inside of an IDE of your choice. 
+
+```
+$ cd ../MyCourses
+$ git clone <url>
+
+- Open Intellij
+- <Open From Finder> -> <SRC>
+```
 
 =======
 
