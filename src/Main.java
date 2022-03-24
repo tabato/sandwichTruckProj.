@@ -14,23 +14,27 @@ Description: - Will cause the random houses code to run
 - Call the mainframe where the standard GUI is built
  */
 
-/*
-Author:
-@ Colin Conway
-
-Added TimeStamps to be added to the batch file
-time is in military time in hours and minutes ranging from 11:00 to 16:59
- */
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
-
         addressWriter();
         mainFrame mainframe = new mainFrame();
-
     }
 
+    /*
+    Author :
+    @ Jake Clause
+
+    - Writes the orders (Address, Time, etc.) Into our bash file for use later
+
+    Editors :
+    @ Colin Conway
+    - Added TimeStamps to be added to the batch file
+    time is in military time in hours and minutes ranging from 11:00 to 16:59
+    @ Thomas Abato
+    - Cleaned up integration from seperate file to this file
+     */
     public static void addressWriter() throws IOException {
         PrintStream file = new PrintStream(new File("something.txt")); // creates a file with a path stream
         for (int i = 0; i < 100; i++) { // Replace the number after "i < " for many addresses you want
