@@ -19,7 +19,7 @@ There are more comments on the inside to further explain specifics, but as a res
 I was forced to make a lot of the adjustments myself which made for some funky class decisions.
  */
 
-public class MyPanel extends JPanel implements ActionListener{
+public class MyPanel extends JPanel {
     /*
     Author : @ Thomas Abato
 
@@ -35,9 +35,10 @@ public class MyPanel extends JPanel implements ActionListener{
         The caller function that paints using the other classes, puts the pieces together on the GUI
          */
 
-    Position truckPos = new Position(500,500);
-    deliveryRoute route = new deliveryRoute(truckPos, Address.createPriorityQueue());
-    Truck t = new Truck(truckPos, Address.createPriorityQueue(), route);
+    // Initializes the variables to create a truck, and the truck itself
+    Position startingSpot = new Position(500,500);
+    deliveryRoute route = new deliveryRoute(startingSpot, Address.createPriorityQueue());
+    Truck t = new Truck(startingSpot, Address.createPriorityQueue(), route);
 
     public void paint(Graphics g) {
 
@@ -53,7 +54,15 @@ public class MyPanel extends JPanel implements ActionListener{
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-            t.paintComponent(g);
+
+
+        t.paintComponent(g);
+
+        while(t.hasDestinations()){
+            t.update(g);
+            t.repaint();
+        }
+
         }
 
 
@@ -67,7 +76,7 @@ public class MyPanel extends JPanel implements ActionListener{
     }
 
  */
-
+/*
      Timer tm = new Timer(1, this);
      int X=500, velX=1;
 
@@ -80,6 +89,8 @@ public class MyPanel extends JPanel implements ActionListener{
 
         tm.start();
     }
+
+ */
 
 
 
@@ -141,11 +152,14 @@ public class MyPanel extends JPanel implements ActionListener{
         }
     }
 
+    /*
     @Override
     public void actionPerformed(ActionEvent e) {
         X = X + velX;
         repaint();
     }
+
+     */
 
 
 
