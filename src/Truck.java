@@ -37,7 +37,44 @@ public boolean hasDestinations(){
         destinations.remove(0);
         this.update(g);
         }
+        else{
+            if (destinationNow.yCoordinate() > position.yCoordinate()){
 
+                if(position.yCoordinate() % 100 == 0 && position.yCoordinate() % 100 == 0)
+                    position.setLocation(position.xCoordinate(), position.yCoordinate()+1);
+                else{
+                    position.setLocation(position.xCoordinate(), position.yCoordinate()+1);
+                    destinations.add(0, destinationNow);
+                }
+
+            }
+            else if (destinationNow.yCoordinate() < position.yCoordinate())
+            {
+                if(position.xCoordinate() % 100 == 0 && position.yCoordinate() % 100 == 0)
+                    position.setLocation(position.xCoordinate(), position.yCoordinate()-1);
+                else {
+                    position.setLocation(position.xCoordinate(), position.yCoordinate()-1);
+                    destinations.add(0, destinationNow);
+                }
+            }
+            else if(destinationNow.xCoordinate() > position.xCoordinate()){
+                if(position.xCoordinate() % 100 == 0 && position.yCoordinate() % 100 == 0)
+                    position.setLocation(position.xCoordinate(), position.yCoordinate()-1);
+                else {
+                    position.setLocation(position.xCoordinate()+1, position.yCoordinate());
+                    destinations.add(0, destinationNow);
+                }
+            }
+            else if(destinationNow.xCoordinate() < position.xCoordinate()){
+                if(position.xCoordinate() % 100 == 0 && position.yCoordinate() % 100 == 0)
+                    position.setLocation(position.xCoordinate()-1, position.yCoordinate());
+                else{
+                    position.setLocation(position.xCoordinate()-1, position.yCoordinate());
+                    destinations.add(0, destinationNow);
+                }
+
+            }
+        }
     }
 
     @Override
