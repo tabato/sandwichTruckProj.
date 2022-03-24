@@ -1,5 +1,7 @@
 package primarySrc.sandwichTruckGUItest.sandwichTruckGUItest.src.com.company;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.util.Random;
 
 /*
@@ -14,6 +16,8 @@ Description: - Adaptation of the code written by Jake Clause
  */
 
 public class addressWriter {
+
+
 
     public static void addressWriter() throws IOException {
         PrintStream file = new PrintStream(new File("Houses.txt")); // creates a file with a path stream

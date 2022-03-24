@@ -3,8 +3,11 @@ package primarySrc.sandwichTruckGUItest.sandwichTruckGUItest.src.com.company;
 import javax.swing.*;
 import javax.xml.stream.Location;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.concurrent.Delayed;
 
 /*
 Author :
@@ -17,22 +20,87 @@ I was forced to make a lot of the adjustments myself which made for some funky c
  */
 
 public class MyPanel extends JPanel {
+    /*
+    Author : @ Thomas Abato
 
-    // Creates dimensions, constructor...
+    Constructor of the mypanel to be called
+     */
     MyPanel(){
         this.setPreferredSize(new Dimension(900, 900));
     }
 
-        // Calls functions to paint onto the GUI
+        /*
+        Author : @ Thomas Abato
+
+        The caller function that paints using the other classes, puts the pieces together on the GUI
+         */
+
+    // Initializes the variables to create a truck, and the truck itself
+    Position startingSpot = new Position(500,500);
+    deliveryRoute route = new deliveryRoute(startingSpot, Address.createPriorityQueue());
+    Truck t = new Truck(startingSpot, Address.createPriorityQueue(), route);
+
     public void paint(Graphics g) {
+
         try {
             drawRoads(g);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+
+        try {
+            drawDestinations(g);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        t.paintComponent(g);
+
+        while(t.hasDestinations()){
+            t.update(g);
+            t.repaint();
+        }
+
+        }
+
+
+
+/*
+    public void createTruck(Graphics g) throws FileNotFoundException {
+        super.paintComponent(g);
+        Graphics2D g2D = (Graphics2D) g;
+        g.setColor(Color.BLUE);
+        g.fillRect(X, 500, 11, 11);
     }
 
-        // Paints the roads
+ */
+/*
+     Timer tm = new Timer(1, this);
+     int X=500, velX=1;
+
+    public void movingTruck(Graphics g) throws FileNotFoundException {
+        super.paintComponent(g);
+        Graphics2D g2D = (Graphics2D) g;
+
+        g.setColor(Color.BLUE);
+        g.fillRect(X, 500, 11, 11);
+
+        tm.start();
+    }
+
+ */
+
+
+
+
+
+        /*
+        Author: @ Thomas Abato
+
+        Paints the roads
+         */
     public void drawRoads(Graphics g) throws FileNotFoundException {
 
         // Establishes Graphics
@@ -66,7 +134,15 @@ public class MyPanel extends JPanel {
         g2D.drawLine(800,0, 800, 900);
         g2D.drawLine(900,0, 900, 900);
 
-        // Draws Destinations
+    }
+
+    /*
+    Author : @ Thomas Abato
+
+    Paints the desinations of the road
+     */
+    public void drawDestinations(Graphics g) throws FileNotFoundException {
+        Graphics2D g2D = (Graphics2D) g;
         g2D.setPaint(Color.RED);
         ArrayList<Position> addressBook = new ArrayList<>();
         addressBook = Address.createAddressBook();
@@ -74,58 +150,28 @@ public class MyPanel extends JPanel {
             Destination nextDestination = new Destination(addressBook.get(i));
             g.fillOval(nextDestination.getX(nextDestination), nextDestination.getY(nextDestination), 10, 10);
         }
-        // Destination nextDestination = new Destination(addressBook.get(0));
-        // g.fillOval(nextDestination.getX(nextDestination), nextDestination.getY(nextDestination), 10, 10);
     }
 
-    // Creating the Supply Center ! FOR NEXT SPRINT !
     /*
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        X = X + velX;
+        repaint();
+    }
+
+     */
+
+
+
+/*
+    // Creating the Supply Center ! FOR NEXT SPRINT !
     public void createSupplyCenter(){
         Position scPosition = new Position(500,500);
 
     }
-     */
 
-    // Creating the object that will represent the truck on the map ! FOR NEXT SPRINT
-    /*
-    public void createTruck()
-    {
-        Position stPosition = new Position(500,500);
-    }
-     */
-
-    // Mind Freedom !!!!!
-    // ArrayList<Position> addressBook = new ArrayList<>();
-    public void createDestinations() throws FileNotFoundException {
-        /*
-        addressBook = Address.createAddressBook();
-        Destination nextDestination = new Destination(addressBook.get(0));
-
-        nextDestination.drawDestination();
-
-         */
-    }
-
-    // Create Destination / ORDERS
-    public void createDesination(){
-
-    }
-
-    // Draw the Destinations / ORDERS
-    public void drawDestination(Graphics g){
-        Graphics2D g2D = (Graphics2D) g;
-        g2D.setPaint(Color.RED);
-
-
-        // Iterator<E> iterator =
-        /*
-        while (iterator.hasNext())
-        {
-            Address dotForOrder = iterator.next().getAddress();
-            x = dotForOrder.getX();
-        }
-         */
-    }
-
-
+ */
 }
+
+
+

@@ -19,8 +19,8 @@ Description: - Constructs our addresses for our address book
 
 public class Address {
 
-    private static final String filename = "/Users/colinconway/Courses/Software_engineering/sandwichTruckProj./something.txt";
-    // private static final String filename = "/Users/abatotmoravian.edu/MyCourses/234/sandwichTruckProj./something.txt";
+    // private static final String filename = "/Users/colinconway/Courses/Software_engineering/sandwichTruckProj./something.txt";
+    private static final String filename = "/Users/abatotmoravian.edu/MyCourses/234/sandwichTruckProj./something.txt";
     private final String street;
     private final int houseNumber;
     private final String timestamp;
@@ -31,7 +31,11 @@ public class Address {
     // ! DO NOT NEED FOR NOW ! private ArrayList<Address> addressBook;
     // ! DO NOT NEED FOR NOW ! private File filename = new File("houses.txt");
 
-        // Address constructor for street name, house number
+
+        /*
+        Author : Thomas Abato
+        Address constructor for street name, house number
+         */
     public Address(String street, int houseNumber, String timestamp){
         this.timestamp = timestamp;
 
@@ -49,17 +53,30 @@ public class Address {
         }
     }
 
-        // returns house number
+        /*
+        Author : Thomas Abato
+
+        - Gives the house number of an address
+         */
     public int getHouseNumber(){
         return this.houseNumber;
     }
 
-        // returns street
+    /*
+    Author : Thomas Abato
+
+    - Gives the street number of an address
+     */
     public String getStreet(){
         return this.street;
     }
 
-    // public String getTimeStamp(){ return this.timestamp; }
+    /*
+            Author : Colin Conway
+
+            - Gives the Time Stamp of an order
+             */
+    public String getTimeStamp(){ return this.timestamp; }
 
         // Reads from the file & creates the array list for our addresses
 //    public static ArrayList<Position> createAddressBook() throws FileNotFoundException {
@@ -107,6 +124,14 @@ public class Address {
 //        return addressBook; // returns the array list
 //    }
 
+
+    /*
+    Author : @ Thomas Abato
+    - Creates an array list of type positions to create a list of address from our orders
+
+    Editor @ Colin Conway
+    - Made edits as we added time stamps to the bash file as well as made changes to create a faster solution
+     */
     public static ArrayList<Position> createAddressBook() throws FileNotFoundException {
         // ArrayList<Position> addressBook = new ArrayList<>();
         Scanner scanner = new Scanner(new File(filename));
