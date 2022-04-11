@@ -1,5 +1,5 @@
 package primarySrc.sandwichTruckGUItest.sandwichTruckGUItest.src.com.company;
-
+import java.lang.Math;
 
 
 
@@ -47,7 +47,11 @@ public class Position {
         // Returns the distance between two positions
     public static double getDistance(Position p1, Position p2){
         double distance;
-        distance = 0;
+        double x1 = p1.xCoordinate();
+        double y1 = p1.yCoordinate();
+        double x2 = p2.xCoordinate();
+        double y2 = p2.yCoordinate();
+        distance = Math.sqrt ((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
         return distance;
     }
 
