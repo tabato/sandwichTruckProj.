@@ -1,14 +1,12 @@
-package sandwichOrders.src;
-
+package sandwichOrders2.src;
 
 public class Ham extends Sandwich {
-	public Ham() {
-		name = "Ham Sandwich";
-		bread = "Bread";
-		ingredients.add("Mustard");
-		ingredients.add("Tomato");
-		ingredients.add("Lettuce");
-		ingredients.add("Ham");
-		cost = "1.25";
-	}
+
+    public Ham() {
+        description = "Ham Sandwich";
+    }
+
+    public double cost() {
+        return 1.50;
+    }
 }
