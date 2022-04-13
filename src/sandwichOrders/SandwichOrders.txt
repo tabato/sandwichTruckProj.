@@ -1,102 +1,101 @@
-Hamburger, 10:39AM
-Chicken Sandwich, 4:34PM
-Ham Sandwich, 11:43AM
-Hamburger, 9:41PM
-Roast Beef Sandwich, 3:54PM
-Hamburger, 2:13PM
-Hamburger, 12:24PM
-Roast Beef Sandwich, 2:20PM
-Roast Beef Sandwich, 9:11PM
-Ham Sandwich, 10:19AM
-Roast Beef Sandwich, 5:06PM
-Ham Sandwich, 5:24PM
-Roast Beef Sandwich, 10:23AM
-Egg Sandwich, 6:14PM
-Ham Sandwich, 9:28PM
-Nutella Sandwich, 4:56PM
-Nutella Sandwich, 2:47PM
-Chicken Sandwich, 1:29PM
-Chicken Sandwich, 2:11PM
-Nutella Sandwich, 10:37AM
-Ham Sandwich, 7:07PM
-Nutella Sandwich, 11:45AM
-Meatball Sandwich, 11:17AM
-Roast Beef Sandwich, 7:12PM
-Tuna Sandwich, 5:20PM
-Hamburger, 6:12PM
-Tuna Sandwich, 8:58PM
-Turkey Sandwich, 9:49PM
-Hamburger, 1:50PM
-Grilled Cheese Sandwich, 2:27PM
-Grilled Cheese Sandwich, 6:04PM
-Hamburger, 3:55PM
-Tuna Sandwich, 6:50PM
-Tuna Sandwich, 10:49AM
-Meatball Sandwich, 5:29PM
-Turkey Sandwich, 11:49AM
-Nutella Sandwich, 1:31PM
-Turkey Sandwich, 4:37PM
-Ham Sandwich, 2:33PM
-Ham Sandwich, 1:08PM
-Nutella Sandwich, 1:34PM
-Tuna Sandwich, 2:44PM
-Grilled Cheese Sandwich, 10:55AM
-Grilled Cheese Sandwich, 7:10PM
-Hamburger, 3:13PM
-Grilled Cheese Sandwich, 3:15PM
-Tuna Sandwich, 1:01PM
-Meatball Sandwich, 4:07PM
-Chicken Sandwich, 9:24PM
-Meatball Sandwich, 7:03PM
-Nutella Sandwich, 10:29AM
-Grilled Cheese Sandwich, 1:55PM
-Meatball Sandwich, 6:44PM
-Grilled Cheese Sandwich, 3:53PM
-Grilled Cheese Sandwich, 3:44PM
-Nutella Sandwich, 10:22AM
-Tuna Sandwich, 6:58PM
-Grilled Cheese Sandwich, 1:48PM
-Chicken Sandwich, 8:14PM
-Turkey Sandwich, 10:53AM
-Turkey Sandwich, 12:01PM
-Hamburger, 11:14AM
-Tuna Sandwich, 5:13PM
-Turkey Sandwich, 2:09PM
-Grilled Cheese Sandwich, 1:27PM
-Hamburger, 2:14PM
-Grilled Cheese Sandwich, 5:05PM
-Nutella Sandwich, 5:56PM
-Meatball Sandwich, 4:58PM
-Grilled Cheese Sandwich, 7:15PM
-Tuna Sandwich, 3:06PM
-Egg Sandwich, 2:46PM
-Ham Sandwich, 1:28PM
-Meatball Sandwich, 7:55PM
-Nutella Sandwich, 8:59PM
-Chicken Sandwich, 2:40PM
-Grilled Cheese Sandwich, 11:13AM
-Egg Sandwich, 4:19PM
-Meatball Sandwich, 7:35PM
-Chicken Sandwich, 9:43PM
-Ham Sandwich, 4:15PM
-Turkey Sandwich, 4:24PM
-Meatball Sandwich, 4:49PM
-Turkey Sandwich, 8:48PM
-Ham Sandwich, 9:50PM
-Egg Sandwich, 1:49PM
-Nutella Sandwich, 8:31PM
-Hamburger, 9:50PM
-Chicken Sandwich, 7:20PM
-Grilled Cheese Sandwich, 3:46PM
-Egg Sandwich, 7:20PM
-Turkey Sandwich, 11:13AM
-Turkey Sandwich, 9:49PM
-Roast Beef Sandwich, 3:39PM
-Turkey Sandwich, 12:57PM
-Turkey Sandwich, 12:13PM
-Hamburger, 8:47PM
-Roast Beef Sandwich, 12:19PM
-Hamburger, 9:57PM
-Roast Beef Sandwich, 9:13PM
-
-The total is: $126.50
+Ham Sandwich, White Bread, $1.85
+Hamburger, Bun, Mustard, Cheese, Lettuce, Tomato, Cheese, $4.60
+Ham Sandwich, Wheat Bread, $1.95
+Ham Sandwich, Wheat Bread, $1.95
+Hamburger, Bun, Lettuce, Tomato, Cheese, Ketchup, Mustard, Tomato, Ketchup, Mustard, Lettuce, Lettuce, $5.60
+Turkey Sandwich, White Bread, $1.85
+Turkey Sandwich, White Bread, $1.85
+Hamburger, Bun, $2.15
+Ham Sandwich, Rye Bread, Lettuce, Mustard, Mayonnaise, Cheese, Tomato, $3.75
+Hamburger, Bun, $2.15
+Hamburger, Bun, Cheese, $2.90
+Turkey Sandwich, Rye Bread, Cheese, Tomato, $2.95
+Hamburger, Bun, Cheese, Lettuce, Cheese, Lettuce, Tomato, $4.65
+Hamburger, Bun, $2.15
+Hamburger, Bun, Cheese, Lettuce, Tomato, $3.60
+Hamburger, Bun, $2.15
+Turkey Sandwich, Rye Bread, $1.80
+Ham Sandwich, Wheat Bread, $1.95
+Hamburger, Bun, $2.15
+Ham Sandwich, White Bread, $1.85
+Hamburger, Bun, $2.15
+Ham Sandwich, Rye Bread, $1.80
+Turkey Sandwich, Rye Bread, $1.80
+Ham Sandwich, White Bread, Cheese, Lettuce, Tomato, Ketchup, Mayonnaise, Lettuce, Cheese, Lettuce, $5.15
+Ham Sandwich, White Bread, $1.85
+Ham Sandwich, Wheat Bread, Ketchup, Mustard, Cheese, Lettuce, $3.50
+Hamburger, Bun, Lettuce, $2.45
+Ham Sandwich, Rye Bread, Mustard, Mayonnaise, Cheese, Cheese, Lettuce, Tomato, Mustard, Lettuce, Tomato, Ketchup, Mustard, Mayonnaise, Tomato, $6.60
+Ham Sandwich, Rye Bread, Ketchup, Mayonnaise, Lettuce, Ketchup, Cheese, $3.60
+Turkey Sandwich, Wheat Bread, Cheese, Tomato, $3.10
+Turkey Sandwich, Wheat Bread, Cheese, Tomato, $3.10
+Ham Sandwich, Wheat Bread, $1.95
+Hamburger, Bun, $2.15
+Ham Sandwich, White Bread, Mayonnaise, Lettuce, Tomato, $2.80
+Ham Sandwich, Wheat Bread, Cheese, Tomato, Mustard, Mayonnaise, Cheese, Lettuce, Tomato, $5.05
+Ham Sandwich, Wheat Bread, $1.95
+Hamburger, Bun, Lettuce, $2.45
+Hamburger, Bun, $2.15
+Turkey Sandwich, White Bread, Mayonnaise, Lettuce, Tomato, $2.80
+Ham Sandwich, Wheat Bread, $1.95
+Turkey Sandwich, White Bread, $1.85
+Turkey Sandwich, Wheat Bread, $1.95
+Turkey Sandwich, Rye Bread, $1.80
+Hamburger, Bun, $2.15
+Ham Sandwich, Wheat Bread, Mustard, Mayonnaise, Cheese, Lettuce, $3.50
+Hamburger, Bun, $2.15
+Ham Sandwich, White Bread, $1.85
+Ham Sandwich, White Bread, $1.85
+Hamburger, Bun, Ketchup, Mustard, Cheese, Lettuce, $3.70
+Turkey Sandwich, Wheat Bread, Mayonnaise, Lettuce, $2.50
+Ham Sandwich, Rye Bread, Ketchup, Mustard, Cheese, Lettuce, Mustard, Mayonnaise, Tomato, $4.25
+Turkey Sandwich, White Bread, $1.85
+Hamburger, Bun, Ketchup, Mayonnaise, Cheese, Lettuce, $3.70
+Turkey Sandwich, Rye Bread, Cheese, Tomato, $2.95
+Ham Sandwich, Rye Bread, $1.80
+Ham Sandwich, White Bread, $1.85
+Hamburger, Bun, Lettuce, Lettuce, Tomato, Mustard, Cheese, Lettuce, Tomato, Ketchup, Mustard, Lettuce, Tomato, Lettuce, Ketchup, Lettuce, Tomato, $7.30
+Ham Sandwich, White Bread, $1.85
+Turkey Sandwich, Wheat Bread, $1.95
+Hamburger, Bun, Ketchup, Mustard, Cheese, Lettuce, Tomato, Ketchup, Mustard, Mayonnaise, Tomato, $5.25
+Turkey Sandwich, Wheat Bread, Mustard, Cheese, Lettuce, Ketchup, Mustard, Mayonnaise, Cheese, Ketchup, Cheese, Lettuce, $6.05
+Turkey Sandwich, Wheat Bread, $1.95
+Ham Sandwich, White Bread, Mustard, Lettuce, Lettuce, $2.70
+Ham Sandwich, Wheat Bread, Tomato, Mayonnaise, $2.60
+Ham Sandwich, Rye Bread, $1.80
+Hamburger, Bun, $2.15
+Turkey Sandwich, Rye Bread, $1.80
+Ham Sandwich, White Bread, Cheese, Lettuce, Tomato, Lettuce, Tomato, $4.00
+Hamburger, Bun, $2.15
+Turkey Sandwich, Wheat Bread, Cheese, Tomato, $3.10
+Ham Sandwich, Wheat Bread, $1.95
+Hamburger, Bun, Ketchup, Mustard, Lettuce, Ketchup, Cheese, Lettuce, $4.25
+Turkey Sandwich, Wheat Bread, $1.95
+Hamburger, Bun, Ketchup, Mustard, Mayonnaise, Cheese, Lettuce, Mustard, Mayonnaise, Lettuce, $4.75
+Ham Sandwich, Wheat Bread, $1.95
+Ham Sandwich, White Bread, $1.85
+Hamburger, Bun, Ketchup, Lettuce, Lettuce, Tomato, Ketchup, Mustard, Cheese, Lettuce, Mustard, Cheese, Lettuce, $6.25
+Ham Sandwich, Rye Bread, Cheese, Tomato, $2.95
+Hamburger, Bun, $2.15
+Hamburger, Bun, $2.15
+Turkey Sandwich, White Bread, Ketchup, Mayonnaise, Lettuce, Tomato, $3.05
+Turkey Sandwich, White Bread, $1.85
+Hamburger, Bun, $2.15
+Turkey Sandwich, White Bread, Cheese, Lettuce, Tomato, $3.30
+Turkey Sandwich, Rye Bread, Cheese, Tomato, Lettuce, Mustard, Mayonnaise, Lettuce, Tomato, Ketchup, Mustard, Mayonnaise, Cheese, $5.95
+Turkey Sandwich, Wheat Bread, $1.95
+Hamburger, Bun, Tomato, $2.55
+Ham Sandwich, White Bread, Ketchup, Mustard, Mayonnaise, Cheese, Tomato, $3.75
+Hamburger, Bun, Mustard, Lettuce, Cheese, Tomato, Lettuce, $4.15
+Turkey Sandwich, Rye Bread, Cheese, Tomato, Ketchup, Cheese, Lettuce, Tomato, $4.65
+Turkey Sandwich, Wheat Bread, $1.95
+Turkey Sandwich, White Bread, Lettuce, $2.15
+Ham Sandwich, Rye Bread, Cheese, Tomato, $2.95
+Turkey Sandwich, White Bread, Ketchup, Mayonnaise, Cheese, Lettuce, $3.40
+Ham Sandwich, Wheat Bread, Ketchup, Cheese, Tomato, Ketchup, Mustard, Mayonnaise, Lettuce, $4.40
+Turkey Sandwich, Rye Bread, $1.80
+Ham Sandwich, Rye Bread, Lettuce, Cheese, Lettuce, Tomato, Lettuce, $3.85
+Ham Sandwich, Wheat Bread, Mustard, Lettuce, $2.50
+Ham Sandwich, Rye Bread, Ketchup, Mustard, Mayonnaise, Cheese, Tomato, Ketchup, Ketchup, Mayonnaise, Cheese, Lettuce, Tomato, $5.90
+Turkey Sandwich, Rye Bread, $1.80
+Total: $290.80
