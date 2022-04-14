@@ -4,21 +4,37 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.PriorityQueue;
+/*
+    Authors :
+    @ Thomas Abato
+    @ Luke Suppa
+
+    Description: - Implementation of the RouteMethod interface
+    - Uses the route, truck and future destination to calculate a route making no uturns
+    (For our esaier understanding, not moving the opposite direction without first making a 90 degree turn)
+ */
 
 public class NoUturnRoute implements RouteMethod {
     private static Route route;
     private static Truck truck;
 
+    /*
+    Authors :
+    @ Luke Suppa
+
+    Description: - Safety by ensuring we have orders
+    - Dictates a direction to begin
+    - Iterates over until a turn is singaled
+ */
     @Override
-    public Route calculateRoute(PriorityQueue<Order> orders, Point distrCenter) {
-        // Make sure we have orders
+    public Route calculateRoute(PriorityQueue<Order> orders, Point center) {
+
         if (orders.isEmpty())
-            generalCrash("We have no orders and were fired.");
+            generalCrash("Either there are no more orders, or we have run into an error.");
 
         route = new Route(0, 0, new ArrayList<>());
-        truck = new Truck(new Address((int) distrCenter.getX(), (int) distrCenter.getY()));
+        truck = new Truck(new Address((int) center.getX(), (int) center.getY()));
 
-        // Set truck's initial direction
         if (orders.peek().getAddress().getY() < truck.getAddress().getY())
             truck.setDirection(Direction.NORTH);
         else
@@ -67,12 +83,20 @@ public class NoUturnRoute implements RouteMethod {
     }
 
 
-    // Helper functions that call move functions to create the route
+    /*
+    Authors :
+    @ Luke Suppa
+
+    Description: - Assists to create the route
+    - Checks whether or not the car is on the correct horizontal street
+    - Checks whether or not the car is on the correct vertical street
+    - Dictates whether or not it is moving in the right direction
+    - Ensures no uturns are made on a vertical access
+ */
+
     private void noUturnVertical(Direction direction, int horDel, int destX, int destY) {
-        // If destination is on a horizontal street or not on the truck's street, move vertically to the closest street
         if (destY % 100 == 0 || (destY % 100 != 0 && horDel != 0)) {
             moveNearestBlockToDestination(direction, truck.getAddress().getX(), truck.getAddress().getY(), destX, destY);
-            // We make a turn depending on the shortest route
             if ((direction == Direction.SOUTH && horDel > 0) || direction == Direction.NORTH && horDel < 0) {
                 route.setTime(route.getTime() + 2);
                 if (direction == Direction.SOUTH)
@@ -87,27 +111,32 @@ public class NoUturnRoute implements RouteMethod {
                     direction = Direction.WEST;
             }
         }
-        // If the destination is on a vertical street that the truck is not on, move to it
         if (destY % 100 != 0 && horDel != 0) {
             int curY = truck.getAddress().getY();
             if (curY < destY)
                 moveNearestBlockToDestination(direction, truck.getAddress().getX(), curY, destX, destY);
-            // We make a turn depending on the shortest route
             if ((direction == Direction.EAST && curY > destY) || direction == Direction.WEST && curY < destY)
                 route.setTime(route.getTime() + 2);
             else
                 route.setTime(route.getTime() + 4);
         }
-        // This is either the final move of the above conditions or the truck is already on the same street and can move
-        // directly to the destination
         moveDestination(truck.getAddress().getX(), truck.getAddress().getY(), destX, destY);
     }
 
+    /*
+    Authors :
+    @ Luke Suppa
+
+    Description: - Assists to create the route
+    - Checks whether or not the car is on the correct horizontal street
+    - Checks whether or not the car is on the correct vertical street
+    - Dictates whether or not it is moving in the right direction
+    - Ensures no uturns are made on a horiziontal access
+ */
     private void noUturnHorizontal(Direction direction, int vertDel, int destX, int destY) {
-        // If destination is on a vertical street or not on the truck's street, move horizontally to the closest street
         if (destX % 100 == 0 || (destX % 100 != 0 && vertDel != 0)) {
             moveNearestBlockToDestination(direction, truck.getAddress().getX(), truck.getAddress().getY(), destX, destY);
-            // We make a turn depending on the shortest route
+
             if ((direction == Direction.EAST && vertDel < 0) || direction == Direction.WEST && vertDel > 0) {
                 route.setTime(route.getTime() + 2);
                 if (direction == Direction.EAST)
@@ -122,7 +151,6 @@ public class NoUturnRoute implements RouteMethod {
                     direction = Direction.SOUTH;
             }
         }
-        // If the destination is on a horizontal street that the truck is not on, move to it
         if (destX % 100 != 0 && vertDel != 0) {
             int curX = truck.getAddress().getX();
             moveNearestBlockToDestination(direction, curX, truck.getAddress().getY(), destX, destY);
@@ -132,24 +160,26 @@ public class NoUturnRoute implements RouteMethod {
             else
                 route.setTime(route.getTime() + 4);
         }
-        // This is either the final move of the above conditions or the truck is already on the same street and can move
-        // directly to the destination
         moveDestination(truck.getAddress().getX(), truck.getAddress().getY(), destX, destY);
     }
 
+    /*
+    Authors :
+    @ Thomas Abato
+
+    Description: - Assists to create the route
+    - What to do given the best case scenario is making a uturn
+    */
     private void handleUturn(Direction direction, int destX, int destY) {
-        // Facing wrong direction, so need to loop around
+
         if (direction != null) {
-            // Move to end of the current block and take a right to avoid a U-turn
             moveToEndOfBlock(direction, truck.getAddress().getX(), truck.getAddress().getY());
             moveRightOneBlock(direction, truck.getAddress().getX(), truck.getAddress().getY());
             truck.setDirection(getOppositeDirection(direction));
         } else
-            generalCrash("Tried to handle a U-turn by becoming nothing");
+            generalCrash("U-Turn related crash");
 
-        // We take a right before moving to the destination; takes 2 units of time
         route.setTime(route.getTime() + 2);
-        // Now that the U-turn has been avoided, move to the destination
         if (direction == Direction.NORTH || direction == Direction.SOUTH)
             noUturnVertical(truck.getDirection(), truck.getAddress().getX() - destX, destX, destY);
         else
@@ -157,56 +187,64 @@ public class NoUturnRoute implements RouteMethod {
     }
 
 
-    // Move functions
+    /*
+    Authors :
+    @ Thomas Abato
+
+    Description: - Assists to create the route
+    - Changes the direction of the Truck
+    */
     private void moveDestination(int curX, int curY, int destX, int destY) {
         Direction direction = null;
         int distance = Math.abs(curX - destX) + Math.abs(curY - destY);
 
-        // If the move is vertical, create the appropriate command
         if (destX % 100 == 0) {
-            // Move North
             if ((curY - destY) > 0)
                 direction = Direction.NORTH;
-                // Move South
             else
                 direction = Direction.SOUTH;
         }
-        // If the move is horizontal, create the appropriate command
         else if (destY % 100 == 0) {
-            // Move West
             if ((curX - destX) > 0)
                 direction = Direction.WEST;
-                // Move East
             else
                 direction = Direction.EAST;
         }
-        // Crashing into corner
         else
             cornerCrash();
-        // Update truck and add the command to the route; handle turn times in the functions that call this function
         updateTruckAndRoute(direction, new Address(destX, destY), distance / 10, 0);
     }
 
-    // Move in the direction of the direction argument to the nearest block
+    /*
+     Authors :
+     @ Thomas Abato
+
+     Description: - Assists to create the route
+     - Creates the next destination in relation to the nearest block
+     */
     private void moveNearestBlockToDestination(Direction direction, int curX, int curY, int destX, int destY) {
         int distance = 0;
 
         if (direction == Direction.NORTH || direction == Direction.SOUTH) {
             destY = 100 * (destY / 100) + ((destY % 100 >= 50) ? 100 : 0);
             distance = Math.abs(curY - destY);
-            // We only want to move vertically
             destX = curX;
         } else if (direction == Direction.EAST || direction == Direction.WEST) {
             destX = 100 * (destX / 100) + ((destX % 100 >= 50) ? 100 : 0);
             distance = Math.abs(curX - destX);
-            // We only want to move horizontally
             destY = curY;
         }
 
-        // Update truck and add the command to the route; handle turn times in the functions that call this function
         updateTruckAndRoute(direction, new Address(destX, destY), distance / 10, 0);
     }
 
+    /*
+    Authors :
+    @ Thomas Abato
+
+    Description: - Assists to create the route
+    - How to advance to the end of the block given any direction that you're moving
+    */
     private void moveToEndOfBlock(Direction direction, int curX, int curY) {
         int distance = 0;
         int destX = 0;
@@ -224,12 +262,17 @@ public class NoUturnRoute implements RouteMethod {
             destY = curY;
         }
 
-        // Update truck and add the command to the route; time is 0 since no turn was made
         updateTruckAndRoute(direction, new Address(destX, destY), distance / 10, 0);
     }
 
+    /*
+    Authors :
+    @ Thomas Abato
+
+    Description: - Assists to create the route
+    - Moving eaxctly one block to the right
+    */
     private void moveRightOneBlock(Direction direction, int curX, int curY) {
-        // Turn right and travel one block
         direction = getDirectionToRight(direction);
         if (direction == Direction.NORTH)
             curY -= 100;
@@ -240,14 +283,18 @@ public class NoUturnRoute implements RouteMethod {
         else
             curX -= 100;
 
-        // Update truck and add the command to the route; time is 2 since one right turn is taken
         updateTruckAndRoute(direction, new Address(curX, curY), 10, 2);
     }
 
 
-    // Other helper functions
+    /*
+    Authors :
+    @ Thomas Abato
+
+    Description: - Assists to create the route
+    - Acts as a setter for both direction and adderss, within this case is the next destination
+    */
     private static void updateTruckAndRoute(Direction direction, Address destination, int distance, int time) {
-        // Update truck and add the command to the route
         truck.setDirection(direction);
         truck.setAddress(destination);
         route.addCommand(new Command(distance, direction));
@@ -255,6 +302,13 @@ public class NoUturnRoute implements RouteMethod {
         route.setTime(route.getTime() + distance + time);
     }
 
+    /*
+    Authors :
+    @ Thomas Abato
+
+    Description: - Assists to create the route
+    - basic return function to understand the opposite direction in which you are not travelling
+    */
     private static Direction getOppositeDirection(Direction direction) {
         if (direction == Direction.NORTH)
             return Direction.SOUTH;
@@ -265,6 +319,13 @@ public class NoUturnRoute implements RouteMethod {
         return Direction.EAST;
     }
 
+    /*
+    Authors :
+    @ Thomas Abato
+
+    Description: - Assists to create the route
+    - Basic return function to get the direction that is right of the current direction
+    */
     private static Direction getDirectionToRight(Direction direction) {
         if (direction == Direction.NORTH)
             return Direction.EAST;
@@ -275,11 +336,23 @@ public class NoUturnRoute implements RouteMethod {
         return Direction.NORTH;
     }
 
+    /*
+    Authors :
+    @ Thomas Abato
+
+    Description: - Safety net to call given something goes wrong to close the GUI and route
+    */
     private static void generalCrash(String failure) {
         System.out.println("NoUturnRoute Failure: " + failure + "\nExiting program...");
         System.exit(1);
     }
 
+    /*
+    Authors :
+    @ Thomas Abato
+
+    Description: - Safety net specifically if the car goes off the road
+    */
     private static void cornerCrash() {
         generalCrash("Truck crashed into corner of a street");
     }
