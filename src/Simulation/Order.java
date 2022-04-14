@@ -9,6 +9,13 @@ import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.Scanner;
 
+/*
+    class Order has an address value, time, and list of items ordered. The static values addresses, minTimeDiff,
+    minTime, and maxTime are values set by our config file for different calculations. lastTime allows us to keep track
+    of the last time used for our next random time calculation.
+    @author Jake Clause
+    @author Colin Conway
+ */
 public class Order implements Comparable<Order> {
     // Instance variables
     private ArrayList<Food> items;          // The items ordered
@@ -25,6 +32,12 @@ public class Order implements Comparable<Order> {
     // Class variables
     private static int lastTime = 0; // The time the last order was ordered at
 
+    /*
+        @param Address address
+        @param int time
+        @param ArrayList<Food> items
+        @author Jake Clause
+     */
     public Order(Address address, int time, ArrayList<Food> items) {
         this.address = address;
         this.time = time;
@@ -32,7 +45,11 @@ public class Order implements Comparable<Order> {
         orderDelivered = false;
     }
 
-    // Creates a random order
+    /*
+        creates a random order
+        @param Address address
+        @author Colin Conway
+     */
     protected Order(Address address) {
         this.address = address;
         time = getRandomTime();
@@ -90,16 +107,16 @@ public class Order implements Comparable<Order> {
         }
     }
 
-
-    // Creates a random order
     protected Order() {
         this(new Address());
     }
 
     /*
-     * Returns a random time in military form in the range minTime to maxTime which gives us (maxTime - minTime) minutes
-     * to work with. The random value added to the lastTime is normalized by the time interval, number of addresses, and
-     * a minimum time difference between the last time and the new time.
+       Returns a random time in military form in the range minTime to maxTime which gives us (maxTime - minTime) minutes
+       to work with. The random value added to the lastTime is normalized by the time interval, number of addresses, and
+       a minimum time difference between the last time and the new time.
+       @return lastTime
+       @author Jake Clause
      */
     public int getRandomTime() {
         if (lastTime == 0) {
@@ -117,26 +134,46 @@ public class Order implements Comparable<Order> {
         return lastTime;
     }
 
-    // For normal looking time
+    /*
+        converts time to normal looking
+        @return time
+        @author Jake Clause
+     */
     public String timeToString() {
         int hours = (int) (time / 100.0);
         int minutes = time % 100;
         return ((hours > 12) ? (hours - 12) : hours) + ":" + ((minutes < 10) ? "0" : "") + minutes + ((time > 1159) ? "PM" : "AM");
     }
 
+    /*
+        @return address
+        @author Colin Conway
+     */
     public Address getAddress() {
         return address;
     }
 
+    /*
+    @return items
+    @author Colin Conway
+     */
     public ArrayList<Food> getItems() {
         return items;
     }
 
+    /*
+        @return time
+        @author COlin COnway
+     */
     public int getTime() {
         return time;
     }
 
-    // Returns the list of items as a csv style string
+    /*
+    Returns the list of items as a csv style string
+    @return items
+    @author Jake Clause
+     */
     public String getItemsAsString() {
         if (items.size() == 0)
             return "";
