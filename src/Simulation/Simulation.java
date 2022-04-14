@@ -195,7 +195,6 @@ public class Simulation
                         return;
                     }
 
-                    // If the command is over, get the next command; otherwise decrement the length by 1
                     if (currentCommand.getLength() < 1)
                     {
                         currentCommand = commands.remove(0);
@@ -205,16 +204,14 @@ public class Simulation
                     else
                         currentCommand.setLength(currentCommand.getLength() - 1);
 
-                    // If the command is to not move, then stay still
                     if (currentCommand.getDirection() == Direction.NONE)
                     {
-                        // The order has been delivered; check to make sure we only add the delivered order
+
                         if (currentCommand.getLength() == 4)
                             deliveredOrders.add(orders.poll());
                         return;
                     }
 
-                    // Move in the direction the command specifies
                     Truck truck = neighborhood.getTruck();
                     Address truckAddress = truck.getAddress();
                     if (currentCommand.getDirection() == Direction.NORTH)
@@ -229,13 +226,6 @@ public class Simulation
                     neighborhood.setTruck(truck);
 
                     neighborhood.update(orders.getOrders(), deliveredOrders);
-                    //TODO
-//                    try {
-//                        while(!commands.isEmpty())
-//                        truck.notifyObserver(orders.peek());
-//                    } catch (IOException ex) {
-//                        ex.printStackTrace();
-//                    }
                 }
             }
         });
