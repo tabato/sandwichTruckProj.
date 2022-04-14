@@ -10,13 +10,23 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
+/*
+    Author: @ Thomas Abato
+            @ Luka Suppa
+            @ Colin Conway
+            @ Jake Clause
+
+    Description:
+    - Serves as our main method
+    - Runs a simulation/model for what our end product is going to look like for our customer
+     */
+
 public class Simulation
 {
     // Constants
-    private static final String FILE = "src/files/OrderList.txt";
-    private static final String CONFIG_FILE = "src/files/config.txt";
+    private static final String FILE = "/Users/abatotmoravian.edu/MyCourses/234/sandwichTruckProj./src/files/OrderList.txt";
+    private static final String CONFIG_FILE = "/Users/abatotmoravian.edu/MyCourses/234/sandwichTruckProj./src/files/config.txt";
     private static final int    NUM_VALUES = 8;
-
     // Config variables
     private static int   blocks;
     private static Point distributionCenter;
@@ -24,7 +34,6 @@ public class Simulation
     private static int   numAddresses;
     private static int   minTime, maxTime;
     private static int   minTimeBetweenOrders;
-    
     // Class variables
     private static Orders orders;
     private static ArrayList<Order>     deliveredOrders;
@@ -32,6 +41,12 @@ public class Simulation
     private static ArrayList<Command>   commands;
     private static Command              currentCommand;
 
+    /*
+    Author: @ Thomas Abato
+
+    Description:
+    - Load configuration
+     */
     private static void loadConfiguration()
     {
         try
@@ -67,7 +82,12 @@ public class Simulation
         }
     }
 
-    // Updates the route method and recalculates the route
+        /*
+        Author: @ Thomas Abato
+
+        Description:
+        - Updates the routes from the current state of the route
+         */
     private static Route updateRoute(RouteMethod rm)
     {
         routeMethod = rm;
@@ -76,6 +96,12 @@ public class Simulation
         return route;
     }
 
+    /*
+    Author: @ Thomas Abato
+
+    Description:
+    - Main that calls functions above
+     */
     public static void main(String[] args)
     {
         // Load configuration
@@ -147,16 +173,18 @@ public class Simulation
             System.exit(1);
         }
 
-        // Handle the animation
-        Timer animationTimer = new Timer(100, new ActionListener() {
+        /*
+    Author: @ Thomas Abato
 
+    Description:
+    - Action performed is a method to iterate through the animations of our GUI
+     */
+        Timer animationTimer = new Timer(100, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                // If we have a target, continue
                 if (currentCommand != null)
                 {
-                    // If simulation is done, do nothing
                     if (commands.isEmpty() && currentCommand.getLength() < 1) {
                         try {
                             Thread.sleep(5000);
