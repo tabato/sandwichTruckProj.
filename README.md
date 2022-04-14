@@ -31,9 +31,12 @@ $ git clone <url>
 
 ## File Structure
 The files within this repository operate as follows:
-* [src]
-* [Sprints]
-* [MISC]
+* src
+> Simulation is where the main code can be found, Files is the output of our code, sandwichOrders is where the updated decorator pattern is stored.
+* Sprints
+> Where the files are kept for the previous sprints (I.E. Product backlogs, Burndown chart's etc.)
+* MISC
+> These files include; README.md, Sandwich Truck UML Diagram, something.txt
 
 
 =======
