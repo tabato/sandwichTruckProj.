@@ -46,6 +46,7 @@ public class Simulation
 
     Description:
     - Load configuration
+    - Reads from the files, if there is another address, implememnt it
      */
     private static void loadConfiguration()
     {
@@ -104,7 +105,6 @@ public class Simulation
      */
     public static void main(String[] args)
     {
-        // Load configuration
         loadConfiguration();
 
         Order.setNumAddresses(numAddresses);
@@ -113,17 +113,20 @@ public class Simulation
         Order.setMaxTime(maxTime);
         Address.setBlocks(blocks);
 
-        // Write the specified number of random orders to a file
         Order.writeOrders(FILE, numAddresses);
 
-        // Read the orders from the file and place them in a PriorityQueue. Instantiate deliveredOrders as an empty list
         orders = Orders.getInstance();
         PriorityQueue<Order> queueOrders = Order.readOrders(FILE);
         queueOrders.add(new Order(new Address(distributionCenter.x, distributionCenter.y), 1901, null));
         orders.updateOrders(queueOrders);
         deliveredOrders = new ArrayList<Order>();
 
-        // Create the route the truck will follow and calculate how much time and distance the trip will take
+        /*
+    Author: @ Thomas Abato
+
+    Description:
+    - GUI that allows the user to select a route
+     */
         String[] possibleValues = {"No U-turn Route", "Only Right-turn Route"};
         String selectedValue = (String) JOptionPane.showInputDialog(null, "Choose a Route",
                 "Route Choice", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
@@ -135,31 +138,28 @@ public class Simulation
 
         System.out.println("Route distance: " + route.getDistance());
 
-        //Print the time to the standard output
         int routeTimeHours = route.getTime() / 60;
         int routeTimeMinutes = route.getTime() % 60;
-        //Checking if there are any hours
+
         if(routeTimeHours != 0) {
-            //Check if the hours is = 1, if so then print "hour" instead of "hours"
+
             if(routeTimeHours == 1){
                 System.out.println("Route time = " + routeTimeHours + " hour, " + routeTimeMinutes + " minutes");
 
             }
-            //Other wise print "hours"
+
             else {
                 System.out.println("Route time = " + routeTimeHours + " hours, " + routeTimeMinutes + " minutes");
             }
         }
-        //If not, print the time without the hours
+
         else {
             System.out.println("Route time = " + routeTimeMinutes + " minutes");
         }
 
-
         // Draw the neighborhood with the addresses of the orders, distribution center, and truck shown
 
         NeighborhoodFrame neighborhood = new NeighborhoodFrame(guiSize, blocks, distributionCenter);
-        // Make the neighborhood visible
 
         neighborhood.update(orders.getOrders(), deliveredOrders);
         neighborhood.setVisible(true);
