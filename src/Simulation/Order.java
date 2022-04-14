@@ -203,21 +203,37 @@ public class Order implements Comparable<Order> {
         this.orderDelivered = orderDelivered;
     }
 
+    /*
+    @param numAddresses
+    @author Colin Conway
+     */
     public static void setNumAddresses(int numAddresses) {
         if (numAddresses > 0)
             Order.numAddresses = numAddresses;
     }
 
+    /*
+    @param minTimeDiff
+    @author Colin Conway
+    */
     public static void setMinTimeDiff(int minTimeDiff) {
         if (numAddresses >= 0)
             Order.minTimeDiff = minTimeDiff;
     }
 
+    /*
+    @param minTime
+    @author Colin Conway
+    */
     public static void setMinTime(int minTime) {
         if (minTime > 0)
             Order.minTime = minTime;
     }
 
+    /*
+    @param maxTime
+    @author Colin Conway
+    */
     public static void setMaxTime(int maxTime) {
         if (maxTime > minTime && maxTime > 0)
             Order.maxTime = maxTime;
@@ -266,6 +282,12 @@ public class Order implements Comparable<Order> {
         return false;
     }
 
+    /*
+    adds the orders from file to the priority queue
+    @param filename
+    @return orders in order of time ordered
+    @author Colin Conway
+     */
     public static PriorityQueue<Order> readOrders(String filename) {
         PriorityQueue<Order> orders = new PriorityQueue<>();
         try {
@@ -291,6 +313,12 @@ public class Order implements Comparable<Order> {
         return orders;
     }
 
+    /*
+    writes the file of orders
+        @param filename
+        @param numberAddresses (num of houses to be made)
+        @author Jake CLause
+     */
     public static void writeOrders(String filename, int numberAddresses) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(new File(filename)));
