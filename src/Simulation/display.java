@@ -5,11 +5,10 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 
     /*
-    Author: @ Colin Conway
-    Refactor: @ Thomas Abato
+    Author: @ Thomas Abato
 
     Description:
-    - Display method designed
+    - Updates the observer interface and those watching on call (Updates the truck every 300 milliseconds)
      */
 
 public class display implements Observer {
