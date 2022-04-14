@@ -25,11 +25,15 @@ $ git clone <url>
 
 - Open Intellij
 - <Open From Finder> -> <SRC>
+- Select the Simulation Class
+- Press the green button located on the side of the class
 ```
 
 ## File Structure
 The files within this repository operate as follows:
-
+* [src]
+* [Sprints]
+* [MISC]
 
 
 =======
