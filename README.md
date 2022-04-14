@@ -5,6 +5,7 @@ CSCI 234A Sandwich Truck Repository for Team Six's project.
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [File Structure](#file-structure)
 
 ## General info
 This project is a simple representation of how an app would work for a local sandwich truck using a GUI to represent the truck actively moving on the map, and a way of taking and storing orders and figuring out a route for the truck.
@@ -16,6 +17,8 @@ Project is created with:
 ## Setup
 To run this project, first you must clone the repository, and then open the src file located wherever you clomned the repository inside of an IDE of your choice. 
 
+
+
 ```
 $ cd ../MyCourses
 $ git clone <url>
@@ -23,6 +26,11 @@ $ git clone <url>
 - Open Intellij
 - <Open From Finder> -> <SRC>
 ```
+
+## File Structure
+The files within this repository operate as follows:
+
+
 
 =======
 
