@@ -2,6 +2,10 @@ package primarySrc.sandwichTruckGUItest.sandwichTruckGUItest.src.com.company.Sim
 
 import java.util.PriorityQueue;
 
+/*
+ CLass Orders creates an instance of an order and adds it to the priority queue
+ @author COlin Conway
+ */
 public final class Orders {
 
     private static Orders INSTANCE = new Orders();
@@ -9,6 +13,10 @@ public final class Orders {
 
     private Orders() {}
 
+    /*
+    @return INSTANCE
+    @author Colin Conway
+     */
     public static Orders getInstance()
     {
         if (INSTANCE == null)
@@ -19,6 +27,11 @@ public final class Orders {
         return INSTANCE;
     }
 
+    /*
+    @return null
+    @return queue of orders
+    @author Colin Conway
+     */
     public PriorityQueue<Order> getOrders()
     {
         if (orders != null)
@@ -26,11 +39,19 @@ public final class Orders {
         return new PriorityQueue<Order>();
     }
 
+    /*
+    @param queue of newOrders
+    @author Colin Conway
+     */
     public void updateOrders(PriorityQueue<Order> newOrders)
     {
         orders = newOrders;
     }
 
+    /*
+    @return orders
+    @author Colin Conway
+     */
     public Order poll()
     {
         return orders.poll();
