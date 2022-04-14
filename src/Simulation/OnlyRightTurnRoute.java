@@ -5,11 +5,21 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.PriorityQueue;
 
+/*
+    class OnlyTurnRightRoute conatins directions to only allow the truck to turn right
+ */
 public class OnlyRightTurnRoute implements RouteMethod
 {
     private static Route route;
     private static Truck truck;
 
+    /*
+    Creates the route for the truck to take only containing right turns
+    @param queue of orders
+    @param distribution center location
+    @return route
+    @author Colin Conway
+     */
     @Override
     public Route calculateRoute(PriorityQueue<Order> orders, Point distrCenter)
     {
@@ -74,7 +84,14 @@ public class OnlyRightTurnRoute implements RouteMethod
 
 
 
-    // Helper functions that call move functions to create the route
+    /*
+    Helper functions that call move functions to create the route
+    @param direction
+    @param horDel
+    @param destX
+    @param destY
+    @author Colin Conway
+     */
     private void OnlyRightTurnVertical(Direction direction, int horDel, int destX, int destY)
     {
         // If destination is on a horizontal street or not on the truck's street, move vertically to the closest street
@@ -112,6 +129,14 @@ public class OnlyRightTurnRoute implements RouteMethod
         moveDestination(truck.getAddress().getX(), truck.getAddress().getY(), destX, destY);
     }
 
+    /*
+    Helper functions that call move functions to create the route
+    @param direction
+    @param horDel
+    @param destX
+    @param destY
+    @author Colin Conway
+    */
     private void OnlyRightTurnHorizontal(Direction direction, int vertDel, int destX, int destY)
     {
         // If destination is on a vertical street or not on the truck's street, move horizontally to the closest street
@@ -149,6 +174,13 @@ public class OnlyRightTurnRoute implements RouteMethod
         }
     }
 
+    /*
+    Helper functions that call move functions to create the route
+    @param direction
+    @param destX
+    @param destY
+    @author Colin Conway
+    */
     private void handleLeftTurn(Direction direction, int destX, int destY)
     {
         // Needs to make a left turn but can't, so needs to loop around
@@ -172,7 +204,14 @@ public class OnlyRightTurnRoute implements RouteMethod
 
 
 
-    // Move functions
+    /*
+    Helper functions that call move functions to create the route
+    @param curX
+    @param curY
+    @param destX
+    @param destY
+    @author Colin Conway
+ */
     private void moveDestination(int curX, int curY, int destX, int destY)
     {
         Direction direction = null;
@@ -205,7 +244,15 @@ public class OnlyRightTurnRoute implements RouteMethod
         updateTruckAndRoute(direction, new Address(destX, destY), distance / 10, 0);
     }
 
-    // Move in the direction of the direction argument to the nearest block
+    /*
+    Move in the direction of the direction argument to the nearest block
+    @param curX
+    @param curY
+    @param destX
+    @param destY
+    @param Direction
+    @author Colin Conway
+     */
     private void moveNearestBlockToDestination(Direction direction, int curX, int curY, int destX, int destY)
     {
         int distance = 0;
@@ -229,6 +276,14 @@ public class OnlyRightTurnRoute implements RouteMethod
         updateTruckAndRoute(direction, new Address(destX, destY), distance / 10, 0);
     }
 
+
+    /*
+    Move directly to the end of a block when the next order isn't on that block
+    @param curX
+    @param curY
+    @param Direction
+    @author Colin Conway
+    */
     private void moveToEndOfBlock(Direction direction, int curX, int curY)
     {
         int distance = 0;
@@ -254,6 +309,13 @@ public class OnlyRightTurnRoute implements RouteMethod
         updateTruckAndRoute(direction, new Address(destX, destY), distance / 10, 0);
     }
 
+    /*
+    Move in the direction of the direction argument one block
+    @param curX
+    @param curY
+    @param Direction
+    @author Colin Conway
+ */
     private void moveRightOneBlock(Direction direction, int curX, int curY)
     {
         // Turn right and travel one block
@@ -273,7 +335,14 @@ public class OnlyRightTurnRoute implements RouteMethod
 
 
 
-    // Other helper functions
+    /*
+    Truck helper function
+    @param destination
+    @param distance
+    @param time
+    @param Direction
+    @author Colin Conway
+    */
     private static void updateTruckAndRoute(Direction direction, Address destination, int distance, int time)
     {
         // Update truck and add the command to the route
@@ -295,6 +364,12 @@ public class OnlyRightTurnRoute implements RouteMethod
         return Direction.EAST;
     }
 
+    /*
+    gets the direction to the next righthand turn
+    @param Direction
+    @return a direction
+    @author Colin Conway
+    */
     private static Direction getDirectionToRight(Direction direction)
     {
         if (direction == Direction.NORTH)
@@ -306,12 +381,22 @@ public class OnlyRightTurnRoute implements RouteMethod
         return Direction.NORTH;
     }
 
+    /*
+        print line for the truck in case of failure
+        @param failure
+        @author Colin Conway
+     */
     private static void generalCrash(String failure)
     {
         System.out.println("OnlyRightTurnRoute Failure: " + failure + "\nExiting program...");
         System.exit(1);
     }
 
+    /*
+     print line for the truck in case of failure
+     @param failure
+     @author Colin Conway
+    */
     private static void cornerCrash()
     {
         generalCrash("Truck crashed into corner of a street");
