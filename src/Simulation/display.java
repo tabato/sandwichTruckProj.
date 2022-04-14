@@ -4,6 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
+    /*
+    Author: @ Colin Conway
+    Refactor: @ Thomas Abato
+
+    Description:
+    - Display method designed
+     */
 
 public class display implements Observer {
     
