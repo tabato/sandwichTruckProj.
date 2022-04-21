@@ -24,8 +24,8 @@ import java.util.Scanner;
 public class Simulation
 {
     // Constants
-    private static final String FILE = "/Users/abatotmoravian.edu/MyCourses/234/sandwichTruckProj./src/files/OrderList.txt";
-    private static final String CONFIG_FILE = "/Users/abatotmoravian.edu/MyCourses/234/sandwichTruckProj./src/files/config.txt";
+    private static final String FILE = "src/files/OrderList.txt";
+    private static final String CONFIG_FILE = "src/files/config.txt";
     private static final int    NUM_VALUES = 8;
     // Config variables
     private static int   blocks;
@@ -136,7 +136,8 @@ public class Simulation
         else
             route = updateRoute(new OnlyRightTurnRoute());
 
-        System.out.println("Route distance: " + route.getDistance());
+        // Route Distance = 1/10 of a mile per block
+        System.out.println("Route distance: " + (route.getDistance() / 10) + " miles");
 
         int routeTimeHours = route.getTime() / 60;
         int routeTimeMinutes = route.getTime() % 60;
