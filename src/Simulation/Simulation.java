@@ -98,6 +98,71 @@ public class Simulation
     }
 
     /*
+    Author: @Colin Conway
+
+    used to calculate the non chosen routes
+    distance and time for comparison
+     */
+    private static Route updateRoute2(RouteMethod rm)
+    {
+        routeMethod = rm;
+        Route route2 = routeMethod.calculateRoute(orders.getOrders(), distributionCenter);
+        commands = route2.getCommands();
+        return route2;
+    }
+
+    /*
+    Author: @Colin Conway
+    @param Route
+
+    Displays information regarding RightHandTurnOnly Routes
+     */
+    private static void displayRightHandTurnResults(Route route)
+    {
+        int routeTimeHours = route.getTime() / 60;
+        int routeTimeMinutes = route.getTime() % 60;
+
+        System.out.println("Right Hand Turn Route: ");
+        System.out.println("Route distance: " + (route.getDistance() / 10) + " miles");
+
+        if(routeTimeHours != 0)
+            if(routeTimeHours == 1)
+                System.out.println("Route time = " + routeTimeHours + " hour, " + routeTimeMinutes + " minutes");
+            else
+                System.out.println("Route time = " + routeTimeHours + " hours, " + routeTimeMinutes + " minutes");
+        else
+            System.out.println("Route time = " + routeTimeMinutes + " minutes");
+
+        System.out.println(" ");
+    }
+
+    /*
+   Author: @Colin Conway
+   @param Route
+
+   Displays information regarding NoUTurn Routes
+    */
+    private static void displayNoUTurnResults(Route route)
+    {
+        int routeTimeHours = route.getTime() / 60;
+        int routeTimeMinutes = route.getTime() % 60;
+
+        System.out.println("No U Turn route: ");
+        System.out.println("Route distance: " + (route.getDistance() / 10) + " miles");
+
+        if(routeTimeHours != 0)
+            if(routeTimeHours == 1)
+                System.out.println("Route time = " + routeTimeHours + " hour, " + routeTimeMinutes + " minutes");
+            else
+                System.out.println("Route time = " + routeTimeHours + " hours, " + routeTimeMinutes + " minutes");
+        else
+            System.out.println("Route time = " + routeTimeMinutes + " minutes");
+
+        System.out.println(" ");
+    }
+
+
+    /*
     Author: @ Thomas Abato
 
     Description:
@@ -131,32 +196,30 @@ public class Simulation
         String selectedValue = (String) JOptionPane.showInputDialog(null, "Choose a Route",
                 "Route Choice", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
         Route route;
+        Route route2;
+        // gets main route selection
         if (selectedValue.equals(possibleValues[0]))
             route = updateRoute(new NoUturnRoute());
         else
             route = updateRoute(new OnlyRightTurnRoute());
 
-        // Route Distance = 1/10 of a mile per block
-        System.out.println("Route distance: " + (route.getDistance() / 10) + " miles");
+        // gets secondary route selection
+        if (selectedValue.equals(possibleValues[0]))
+            route2 = updateRoute2(new OnlyRightTurnRoute());
+        else
+            route2 = updateRoute2(new NoUturnRoute());
 
-        int routeTimeHours = route.getTime() / 60;
-        int routeTimeMinutes = route.getTime() % 60;
+        // displays main route
+        if (selectedValue.equals(possibleValues[0]))
+            displayNoUTurnResults(route);
+        else
+            displayRightHandTurnResults(route);
 
-        if(routeTimeHours != 0) {
-
-            if(routeTimeHours == 1){
-                System.out.println("Route time = " + routeTimeHours + " hour, " + routeTimeMinutes + " minutes");
-
-            }
-
-            else {
-                System.out.println("Route time = " + routeTimeHours + " hours, " + routeTimeMinutes + " minutes");
-            }
-        }
-
-        else {
-            System.out.println("Route time = " + routeTimeMinutes + " minutes");
-        }
+        // displays secondary route
+        if (selectedValue.equals(possibleValues[0]))
+            displayRightHandTurnResults(route2);
+        else
+            displayNoUTurnResults(route2);
 
         // Draw the neighborhood with the addresses of the orders, distribution center, and truck shown
 
